@@ -1,35 +1,20 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-import altair as alt
 
+st.title('BMI Calculator')
 
-a = {'a':2, 'b':3, 'c':99}
+weight = st.slider('Choose weight - kg', 20, 200, value=75)
 
-st.header("st.button")
+weight
 
+height = st.slider('Choose height - cm', 100, 240, value=170)
 
-# if st.button("say hullo"):
-#     st.write("why hello there!")
-# else:
-st.write("below is a dictionary.",a)
+height
 
-st.text('ttesting')
+height_meters = height / 100
 
-st.write('Hello, *World!* :sunglasses:')
-st.write(1265)
+bmi = weight / (height_meters ** 2)
 
+st.write('BMI is')
 
-df = pd.DataFrame({
-     'first column': [1, 2, 3, 4],
-     'second column': [10, 20, 30, 40]
-     })
-st.write(df)
+bmi
 
-df2 = pd.DataFrame(
-     np.random.randn(200, 3),
-     columns=['a', 'b', 'c'])
-c = alt.Chart(df2).mark_circle().encode(
-     x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c'])
-st.write(c)
-st.write(df2)
